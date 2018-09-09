@@ -29,11 +29,11 @@ module PhoneDistribution
 
     config.generators do |g|
       g.helper = false
-      g.javascripts = true
-      g.stylesheets = true
+      g.javascripts = false
+      g.stylesheets = false
       g.system_tests = false
       g.helper_specs = false
-      g.view_specs = true
+      g.view_specs = false
       g.routing = false
     end
   end
