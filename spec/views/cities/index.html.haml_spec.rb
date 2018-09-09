@@ -19,6 +19,6 @@ RSpec.describe "cities/index", type: :view do
   it "renders a list of cities" do
     render
     assert_select "tr>td", :text => "San Diego".to_s, :count => 1
-    assert_select "tr>td", :text => "Los Angeles", :count => 1
+    assert_select "tr>td", :text => "Los Angeles".to_s, :count => 1
   end
 end

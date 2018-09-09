@@ -34,6 +34,7 @@ module PhoneDistribution
       g.system_tests = false
       g.helper_specs = false
       g.view_specs = true
+      g.routing = false
     end
   end
 end
