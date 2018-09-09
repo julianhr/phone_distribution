@@ -1,5 +1,6 @@
 class AreaCode < ApplicationRecord
   belongs_to :zip_code
+  has_many :phone_number
 
   validates :code,
     uniqueness: true,

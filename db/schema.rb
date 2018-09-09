@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_09_035526) do
+ActiveRecord::Schema.define(version: 2018_09_09_042852) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +29,15 @@ ActiveRecord::Schema.define(version: 2018_09_09_035526) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["state_id"], name: "index_cities_on_state_id"
+  end
+
+  create_table "phone_numbers", force: :cascade do |t|
+    t.integer "number", null: false
+    t.bigint "area_code_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["area_code_id", "number"], name: "index_phone_numbers_on_area_code_id_and_number", unique: true
+    t.index ["area_code_id"], name: "index_phone_numbers_on_area_code_id"
   end
 
   create_table "states", force: :cascade do |t|
@@ -57,5 +66,6 @@ ActiveRecord::Schema.define(version: 2018_09_09_035526) do
 
   add_foreign_key "area_codes", "zip_codes"
   add_foreign_key "cities", "states"
+  add_foreign_key "phone_numbers", "area_codes"
   add_foreign_key "zip_codes", "cities"
 end

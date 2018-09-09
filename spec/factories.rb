@@ -6,13 +6,23 @@ FactoryBot.define do
   end
 
   factory :city do
-    name { 'San Francisco' }
+    sequence(:name) { |n| "City #{n}" }
     state
   end
 
   factory :zip_code do
-    code { 12345 }
+    sequence(:code, 12345)  { |n| n }
     city
+  end
+
+  factory :area_code do
+    sequence(:code, 123) { |n| n }
+    zip_code
+  end
+
+  factory :user do
+    full_name { 'John Smith' }
+    sequence(:email) { |n| "name#{n}@email.com" }
   end
 
 end
