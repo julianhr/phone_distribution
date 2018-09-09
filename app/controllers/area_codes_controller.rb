@@ -69,6 +69,6 @@ class AreaCodesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def area_code_params
-      params.require(:area_code).permit(:code, :zip_code_id)
+      params.require(:area_code).permit(:code)
     end
 end

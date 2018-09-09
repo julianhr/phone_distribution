@@ -53,8 +53,8 @@ RSpec.describe PhoneNumber, type: :model do
   describe 'composite index [area_code_id, number]' do
     it 'allows same number to belong to two different area codes' do
       zip_code = create(:zip_code)
-      area_code1 = AreaCode.create! code: 123, zip_code: zip_code
-      area_code2 = AreaCode.create! code: 987, zip_code: zip_code
+      area_code1 = AreaCode.create! code: 123
+      area_code2 = AreaCode.create! code: 987
       phone_number1 = PhoneNumber.new number: number, area_code: area_code1
       phone_number2 = PhoneNumber.new number: number, area_code: area_code2
 

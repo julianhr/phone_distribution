@@ -1,0 +1,12 @@
+%p#notice= notice
+
+%p
+  %b Zip code:
+  = @zip_code_area_code.zip_code.code
+%p
+  %b Area code:
+  = @zip_code_area_code.area_code.code
+
+= link_to 'Edit', edit_zip_code_area_code_path(@zip_code_area_code)
+\|
+= link_to 'Back', zip_code_area_codes_path

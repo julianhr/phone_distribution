@@ -17,7 +17,6 @@ FactoryBot.define do
 
   factory :area_code do
     sequence(:code, 123) { |n| n }
-    zip_code
   end
 
   factory :user do

@@ -4,7 +4,6 @@
   %thead
     %tr
       %th Code
-      %th Zip code
       %th
       %th
       %th
@@ -13,7 +12,6 @@
     - @area_codes.each do |area_code|
       %tr
         %td= area_code.code
-        %td= area_code.zip_code
         %td= link_to 'Show', area_code
         %td= link_to 'Edit', edit_area_code_path(area_code)
         %td= link_to 'Destroy', area_code, method: :delete, data: { confirm: 'Are you sure?' }

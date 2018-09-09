@@ -2,19 +2,15 @@ require 'rails_helper'
 
 
 RSpec.describe AreaCodesController, type: :controller do
-  let(:zip_code) { create(:zip_code) }
-
   let(:valid_attributes) do
     {
       code: 123,
-      zip_code_id: zip_code.id,
     }
   end
 
   let(:invalid_attributes) do
     {
       code: 12,
-      zip_code_id: zip_code.id
     }
   end
 

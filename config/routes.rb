@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :zip_code_area_codes
   resources :phone_numbers
   resources :users
   resources :area_codes

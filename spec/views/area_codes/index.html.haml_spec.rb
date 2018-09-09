@@ -1,17 +1,13 @@
 require 'rails_helper'
 
 RSpec.describe "area_codes/index", type: :view do
-  let(:zip_code) { create(:zip_code) }
-
   before(:each) do
     assign(:area_codes, [
       AreaCode.create!(
         :code => 123,
-        :zip_code => zip_code
       ),
       AreaCode.create!(
         :code => 987,
-        :zip_code => zip_code
       )
     ])
   end

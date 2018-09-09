@@ -1,0 +1,23 @@
+%h1 Listing zip_code_area_codes
+
+%table
+  %thead
+    %tr
+      %th Zip code
+      %th Area code
+      %th
+      %th
+      %th
+
+  %tbody
+    - @zip_code_area_codes.each do |zip_code_area_code|
+      %tr
+        %td= zip_code_area_code.zip_code.code
+        %td= zip_code_area_code.area_code.code
+        %td= link_to 'Show', zip_code_area_code
+        %td= link_to 'Edit', edit_zip_code_area_code_path(zip_code_area_code)
+        %td= link_to 'Destroy', zip_code_area_code, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Zip code area code', new_zip_code_area_code_path
