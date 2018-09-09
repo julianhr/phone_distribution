@@ -16,10 +16,10 @@ RSpec.describe State, type: :model do
   it { should have_many(:city) }
 
   describe '#code' do
-    context 'should fail if' do
+    context 'is invalid if' do
       let(:state) { State.new valid_attributes }
   
-      it 'is undefined' do
+      it 'is empty' do
         state.code = nil
         expect(state).to be_invalid
         expect(state.errors[:code]).not_to be_empty
@@ -47,7 +47,7 @@ RSpec.describe State, type: :model do
     context 'should fail if' do
       let(:state) { State.new valid_attributes }
 
-      it 'is undefined' do
+      it 'is empty' do
         state.name = nil
         expect(state).to be_invalid
         expect(state.errors[:name]).not_to be_empty

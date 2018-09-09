@@ -16,12 +16,13 @@ RSpec.describe City, type: :model do
   end
 
   it { should belong_to(:state) }
+  it { should have_many(:zip_code) }
 
   describe '#name' do
-    context 'should fail if' do
+    context 'is invalid if' do
       let(:city) { City.new valid_attributes }
 
-      it 'is undefined' do
+      it 'is empty' do
         city.name = nil
         expect(city).to be_invalid
         expect(city.errors[:name]).not_to be_empty
