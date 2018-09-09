@@ -8,6 +8,7 @@
 # directories
 /.bundle
 /config/master.key
+/coverage
 /log/*
 /node_modules
 /public/assets
