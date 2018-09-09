@@ -14,6 +14,7 @@ RSpec.describe ZipCode, type: :model do
   let(:zip_code) { ZipCode.new valid_attributes }
 
   it { should belong_to(:city) }
+  it { should have_many(:area_code) }
 
   describe '#code' do
     it 'is valid if code is 5 integers in length' do

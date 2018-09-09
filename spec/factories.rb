@@ -10,4 +10,9 @@ FactoryBot.define do
     state
   end
 
+  factory :zip_code do
+    code { 12345 }
+    city
+  end
+
 end

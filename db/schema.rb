@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_09_015801) do
+ActiveRecord::Schema.define(version: 2018_09_09_025946) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "area_codes", force: :cascade do |t|
+    t.integer "code", null: false
+    t.bigint "zip_code_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["zip_code_id"], name: "index_area_codes_on_zip_code_id"
+  end
 
   create_table "cities", force: :cascade do |t|
     t.string "name", null: false
@@ -39,6 +47,7 @@ ActiveRecord::Schema.define(version: 2018_09_09_015801) do
     t.index ["code"], name: "index_zip_codes_on_code", unique: true
   end
 
+  add_foreign_key "area_codes", "zip_codes"
   add_foreign_key "cities", "states"
   add_foreign_key "zip_codes", "cities"
 end
