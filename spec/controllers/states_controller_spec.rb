@@ -102,16 +102,17 @@ RSpec.describe StatesController, type: :controller do
 
   describe "PUT #update" do
     context "with valid params" do
-      let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
-      }
+      let(:new_attributes) do
+        {
+          code: 'XY'
+        }
+      end
 
       it "updates the requested state" do
         state = State.create! valid_attributes
-        new_code = 'XY'
-        put :update, params: {id: state.to_param, state: { code: new_code }}, session: valid_session
+        put :update, params: {id: state.to_param, state: new_attributes}, session: valid_session
         state.reload
-        expect(state.code).to eq new_code
+        expect(state.code).to eq new_attributes[:code]
       end
 
       it "redirects to the state" do

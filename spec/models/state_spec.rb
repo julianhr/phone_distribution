@@ -13,6 +13,8 @@ RSpec.describe State, type: :model do
     expect(state).to be_valid
   end
 
+  it { should have_many(:city) }
+
   describe '#code' do
     context 'should fail if' do
       let(:state) { State.new valid_attributes }
