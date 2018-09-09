@@ -61,4 +61,14 @@ RSpec.describe ZipCode, type: :model do
     end
   end
 
+  describe '#city_id' do
+    context 'is invalid if' do
+      it 'is empty' do
+        zip_code.city_id = nil
+        expect(zip_code).to be_invalid
+        expect(zip_code.errors[:city_id]).not_to be_empty
+      end
+    end
+  end
+
 end

@@ -39,6 +39,16 @@ RSpec.describe PhoneNumber, type: :model do
       end
     end
   end
+  
+  describe '#area_code_id' do
+    context 'is invalid if' do
+      it 'is empty' do
+        phone_number.area_code_id = nil
+        expect(phone_number).to be_invalid
+        expect(phone_number.errors[:area_code_id]).not_to be_empty
+      end
+    end
+  end
 
   describe 'composite index [area_code_id, number]' do
     it 'allows same number to belong to two different area codes' do

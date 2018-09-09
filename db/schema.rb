@@ -33,11 +33,13 @@ ActiveRecord::Schema.define(version: 2018_09_09_042852) do
 
   create_table "phone_numbers", force: :cascade do |t|
     t.integer "number", null: false
-    t.bigint "area_code_id"
+    t.bigint "area_code_id", null: false
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["area_code_id", "number"], name: "index_phone_numbers_on_area_code_id_and_number", unique: true
     t.index ["area_code_id"], name: "index_phone_numbers_on_area_code_id"
+    t.index ["user_id"], name: "index_phone_numbers_on_user_id"
   end
 
   create_table "states", force: :cascade do |t|
@@ -67,5 +69,6 @@ ActiveRecord::Schema.define(version: 2018_09_09_042852) do
   add_foreign_key "area_codes", "zip_codes"
   add_foreign_key "cities", "states"
   add_foreign_key "phone_numbers", "area_codes"
+  add_foreign_key "phone_numbers", "users"
   add_foreign_key "zip_codes", "cities"
 end

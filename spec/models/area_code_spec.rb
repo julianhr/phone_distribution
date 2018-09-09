@@ -37,4 +37,15 @@ RSpec.describe AreaCode, type: :model do
       end
     end
   end
+
+  describe '#zip_code_id' do
+    context 'is invalid if' do
+      it 'is empty' do
+        area_code.zip_code_id = nil
+        expect(area_code).to be_invalid
+        expect(area_code.errors[:zip_code_id]).not_to be_empty
+      end
+    end
+  end
+
 end

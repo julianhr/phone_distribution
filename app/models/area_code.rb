@@ -5,4 +5,6 @@ class AreaCode < ApplicationRecord
   validates :code,
     uniqueness: true,
     numericality: { greater_than_or_equal_to: 100, less_than_or_equal_to: 999 }
+  validates :zip_code_id,
+    presence: true
 end
