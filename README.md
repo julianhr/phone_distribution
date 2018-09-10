@@ -13,7 +13,7 @@ For the backend
 gem install bundler
 bundle install
 rails db:create
-rails db:migreate
+rails db:migrate
 rails db:seed
 ```
 
@@ -37,6 +37,8 @@ class NetworkingBase:
     self.base_url = 'https://phone-distribution.herokuapp.com'
 ```
 to `http://localhost:3000`.
+
+**Note:** Free apps on Heroku like this one are put to 'sleep' after 30 minutes of inactivity. Before testing the app please 'wake up' the app by first visiting https://phone-distribution.herokuapp.com
 
 ## Localhost Execution
 
