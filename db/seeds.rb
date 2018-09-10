@@ -6,6 +6,7 @@ require 'csv'
 
 file_relative_path = 'seed_data/zip_city_state_areacode.csv'
 file_abs_path = "#{File.dirname(__FILE__)}/#{file_relative_path}"
+phone_numbers_per_zip_code = 3
 count = 0
 
 puts 'Seeding will begin'
@@ -45,7 +46,7 @@ CSV.foreach(file_abs_path) do |row|
     ZipCodeAreaCode.create! zip_code: db_zip_code, area_code: db_area_code
   end
 
-  phone_number_count = 10
+  phone_number_count = phone_numbers_per_zip_code
 
   PhoneNumber.transaction do
     while phone_number_count > 0
