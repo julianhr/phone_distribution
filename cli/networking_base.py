@@ -4,7 +4,7 @@ import time
 class NetworkingBase:
   def __init__(self):
     self.timeout = 3
-    self.base_url = 'http://localhost:3000'
+    self.base_url = 'https://phone-distribution.herokuapp.com'
 
   def acknowledge_network_retry(self, attempts):
     if self.quit:

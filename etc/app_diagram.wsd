@@ -1,0 +1,49 @@
+@startuml
+
+scale 1.5
+
+class User {
+  full_name: str
+  email: str
+}
+
+namespace geographic_info {
+  class State {
+    code: str
+    name: str
+  }
+  State <|-- City
+
+  class City {
+    name: str
+  }
+  City <|-- ZipCode
+
+  class ZipCode {
+    code
+  }
+}
+
+class ZipCodeAreaCode {
+  zip_code_id: int
+  area_code_id: int
+}
+ZipCode <|--|> ZipCodeAreaCode
+AreaCode <|--|> ZipCodeAreaCode
+
+namespace phone_data {
+  class PhoneNumber {
+    number: int
+    area_code_id: int
+    user_id: int
+  }
+  PhoneNumber *-- AreaCode
+  User --* PhoneNumber
+
+  class AreaCode {
+    code: int
+  }
+}
+
+@enduml
+

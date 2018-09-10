@@ -25,5 +25,6 @@ __pycache__/
 !/tmp/.keep
 .byebug_history
 .yarn-integrity
+*.DS_Store
 *.py[cod]
 yarn-debug.log*
