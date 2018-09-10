@@ -17,6 +17,7 @@ __pycache__/
 /public/packs-test
 /storage/*
 /tmp/*
+*/.pytest*
 
 # files
 !/log/.keep
