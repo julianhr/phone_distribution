@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root to: "page#root"
+
   namespace :api do
     get 'users/show'
     get 'zip_code/:code/random_numbers', to: 'zip_code#random_numbers'
