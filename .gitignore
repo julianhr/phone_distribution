@@ -6,6 +6,7 @@
 
 
 # directories
+__pycache__/
 /.bundle
 /config/master.key
 /coverage
@@ -23,4 +24,5 @@
 !/tmp/.keep
 .byebug_history
 .yarn-integrity
+*.py[cod]
 yarn-debug.log*
