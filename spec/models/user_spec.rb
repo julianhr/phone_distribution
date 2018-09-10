@@ -38,6 +38,16 @@ RSpec.describe User, type: :model do
         expect(user.errors[:email]).not_to be_empty
       end
 
+      it 'is not unique' do
+        email = 'one@one.com'
+        user.email = email
+        user.save!
+        other_user = User.new email: email, full_name: 'Test'
+
+        expect(other_user).to be_invalid
+        expect(other_user.errors[:email]).not_to be_empty
+      end
+
       it 'is an invalid email' do
         user.email = 'simplestring'
         expect(user).to be_invalid
