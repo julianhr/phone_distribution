@@ -11,7 +11,7 @@ class Api::PhoneNumberController < ApplicationController
 
       render json: { assigned: true }
     rescue => exception
-      render json: {}
+      render json: { assigned: false, error: exception.message }
     end
   end
 
@@ -23,9 +23,13 @@ class Api::PhoneNumberController < ApplicationController
       number = number[1..2].join('').to_i
       phone_number = PhoneNumber.where(area_code_id: area_code.id, number: number).first
 
-      render json: { available: phone_number.user_id.nil? }
+      if phone_number
+        render json: { available: phone_number.user_id.nil? }
+      else
+        render json: { available: false }
+      end
     rescue => exception
-      render json: { available: false }
+      render json: { available: false, error: exception.message }
     end
   end
 end

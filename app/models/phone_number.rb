@@ -1,5 +1,6 @@
 class PhoneNumber < ApplicationRecord
   belongs_to :area_code
+  belongs_to :user, required: false
 
   validates :number,
     uniqueness: { scope: :area_code_id },

@@ -19,6 +19,7 @@ RSpec.describe PhoneNumber, type: :model do
   end
 
   it { should belong_to(:area_code) }
+  it { should belong_to(:user) }
 
   describe '#number' do
     context 'is invalid if' do
